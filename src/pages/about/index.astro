@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { copy } from '../../data/site';
+const t = copy.en;
+---
+<BaseLayout locale="en" title="About — SAFAA"><section class="page-hero"><div class="wrap"><h1>{t.aboutTitle}</h1><p>{t.aboutBody}</p></div></section><section class="section"><div class="wrap split"><img class="about-image" src="/images/audience.png" alt="SAFAA community audience" /><div class="prose"><h2>{t.mission}</h2><p>{t.missionText}</p><h2>Our vision</h2><p>{t.visionText}</p><p>Across Sydney, Melbourne, Adelaide, Perth and Brisbane, SAFAA is powered by more than 100 volunteers who make space for honest conversations, useful learning and new friendships.</p><a class="button button-dark" href={`mailto:${t.email}`}>{t.contact}</a></div></div></section><section class="section dark-section"><div class="wrap split"><div><h2>Open to every chapter.</h2><p>We welcome women at different stages of career, family, identity and belonging. Our activities are designed to be practical, warm and easy to join.</p></div><img class="round-image" src="/images/vision-mission.png" alt="SAFAA vision and mission" /></div></section></BaseLayout>

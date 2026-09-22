@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { events } from '../../../data/site';
+export function getStaticPaths() { return events.map((event) => ({ params: { slug: event.slug }, props: { event } })); }
+const { event } = Astro.props;
+---
+<BaseLayout locale="zh" title={`${event.titleZh} — SAFAA`}><section class="page-hero"><div class="wrap"><p class="eyebrow">{event.cityZh} · {event.typeZh}</p><h1>{event.titleZh}</h1><p>{event.dateZh} · {event.summaryZh}</p></div></section><section class="section"><div class="wrap split"><img class="about-image" src={event.image} alt={event.titleZh} /><div class="prose"><p><strong>{event.cityZh}</strong></p><p>{event.summaryZh}</p><p>SAFAA 的活动由志愿者和社群共同创造。活动详情与报名信息会发布在我们的公开活动页。</p><a class="button button-dark" href="https://iced-beryl-997.notion.site/SAFAA-54391bb39be34aa88dcefa446a4fe2f4" rel="noreferrer">查看活动页</a></div></div></section></BaseLayout>

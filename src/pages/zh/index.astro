@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { copy, events } from '../../data/site';
+const t = copy.zh;
+const featured = events.slice(0, 3);
+---
+<BaseLayout locale="zh" title="SAFAA — 澳洲亚裔女性社群">
+  <section class="hero" style={`--hero-image:url(${featured[1].image})`}><div class="hero-inner wrap"><span class="eyebrow">{t.eyebrow}</span><h1>{t.heroTitle}</h1><p>{t.heroBody}</p><div class="actions"><a class="button button-primary" href="/zh/about/">{t.explore}</a><a class="button button-secondary" href="/zh/about/">{t.vision}</a></div></div></section>
+  <section class="stats wrap"><div class="stat"><strong>2,300+</strong><span>{t.members}</span></div><div class="stat"><strong>5</strong><span>{t.cities}</span></div><div class="stat"><strong>100+</strong><span>{t.volunteers}</span></div><div class="stat"><strong>6</strong><span>{t.years}</span></div></section>
+  <section class="section"><div class="wrap"><div class="section-head"><div><h2>{t.featured}</h2><div class="accent"></div></div><a class="event-link" href="/zh/events/">{t.seeAll}</a></div><div class="event-grid">{featured.map((event) => <a class="event-card" href={`/zh/events/${event.slug}/`}><div class="event-image"><img src={event.image} alt={event.titleZh} loading="lazy" /><span class="pill">{event.cityZh}</span></div><div class="event-content"><div class="event-meta">{event.dateZh} · {event.typeZh}</div><h3>{event.titleZh}</h3><p>{event.summaryZh}</p><span class="event-link">查看活动 →</span></div></a>)}</div></div></section>
+  <section class="section dark-section"><div class="wrap split"><div><h2>{t.missionTitle}</h2><p>{t.missionBody}</p><a class="button button-primary" href="/zh/about/">{t.learn}</a></div><img class="round-image" src="/images/vision-mission.png" alt="SAFAA 社群使命" loading="lazy" /></div></section>
+</BaseLayout>

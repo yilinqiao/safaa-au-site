@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { copy } from '../../../data/site';
+const t = copy.zh;
+---
+<BaseLayout locale="zh" title="关于我们 — SAFAA"><section class="page-hero"><div class="wrap"><h1>{t.aboutTitle}</h1><p>{t.aboutBody}</p></div></section><section class="section"><div class="wrap split"><img class="about-image" src="/images/audience.png" alt="SAFAA 社群人群" /><div class="prose"><h2>{t.mission}</h2><p>{t.missionText}</p><h2>我们的愿景</h2><p>{t.visionText}</p><p>我们在悉尼、墨尔本、阿德莱德、珀斯和布里斯班都有志愿者组织活动。超过 100 位志愿者一起创造真诚对话、实用学习和新的友谊。</p><a class="button button-dark" href={`mailto:${t.email}`}>{t.contact}</a></div></div></section><section class="section dark-section"><div class="wrap split"><div><h2>为每一个人生阶段留出空间。</h2><p>我们欢迎处在不同职业、家庭、身份和归属阶段的女性。我们的活动注重实用、友善，也容易参与。</p></div><img class="round-image" src="/images/vision-mission.png" alt="SAFAA 愿景与使命" /></div></section></BaseLayout>

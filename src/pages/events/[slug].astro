@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { events } from '../../data/site';
+export function getStaticPaths() { return events.map((event) => ({ params: { slug: event.slug }, props: { event } })); }
+const { event } = Astro.props;
+---
+<BaseLayout locale="en" title={`${event.title} — SAFAA`}><section class="page-hero"><div class="wrap"><p class="eyebrow">{event.city} · {event.type}</p><h1>{event.title}</h1><p>{event.date} · {event.summary}</p></div></section><section class="section"><div class="wrap split"><img class="about-image" src={event.image} alt={event.title} /><div class="prose"><p><strong>{event.city}</strong></p><p>{event.summary}</p><p>SAFAA activities are created by volunteers for our community. Details and registration are shared through our public activities page.</p><a class="button button-dark" href="https://iced-beryl-997.notion.site/SAFAA-54391bb39be34aa88dcefa446a4fe2f4" rel="noreferrer">View activity page</a></div></div></section></BaseLayout>
