@@ -1,15 +1,17 @@
 # SAFAA Community Profile Website — Design Specification
 
 **Date:** 21 September 2026  
-**Status:** Approved visual direction; ready for implementation-plan review  
+**Status:** Implemented and published on 23 September 2026
 **Working directory:** `safaa-au-site/`  
-**Planned public domain:** `https://safaa-au.site/`
+**Public domain:** `https://safaa-au.site/`
 
 ## Implementation note — 23 September 2026
 
 The approved Gemini Trust composition and English/Chinese, multi-city content goals remain unchanged. During source verification, the local export contained only a few event-specific image files; several images in the first code draft belonged to unrelated events or another organisation. Those have been removed from the published pages. The current implementation uses the approved SAFAA workshop photograph from the POC for the hero and mission section; event cards use an original poster only where it matches the exact event, and otherwise show a plainly designed city cover. This is an honest launch treatment until additional approved event photographs are supplied.
 
 The curated collection now contains 17 source-checked activities spanning 2024–2026, five cities and online; three featured activities cover Sydney, Melbourne and Brisbane. The production routes are `/events/` and `/zh/events/`, retaining the approved Gemini reference's “Events” route naming. The compact launch content model is a typed `src/data/site.ts` array with a `featured` flag and source URL, rather than one JSON file per event. These choices supersede the data-file and route examples below; the maintenance workflow is recorded in `docs/content-update.md`.
+
+The production repository is <https://github.com/yilinqiao/safaa-au-site>. GitHub Pages serves the site, while Hostinger remains the registrar and DNS manager; the custom domain is ownership-verified and HTTPS is enforced. The release record and remaining renewal decision are documented in the execution plan.
 
 ## 1. Purpose
 

@@ -868,21 +868,29 @@ git push origin v1.0.0
 
 ## Final Verification Checklist
 
-- [ ] `npm run check` passes.
-- [ ] `npm test` passes.
-- [ ] `npm run build` passes.
+- [x] `npm run check` passes.
+- [x] `npm test` passes.
+- [x] `npm run build` passes.
 - [ ] `npm run test:e2e` passes locally and against production.
-- [ ] English and Chinese copy are complete and equivalent.
-- [ ] 12–18 activities are published with verified date, city, source and privacy review.
-- [ ] All five cities with suitable material are represented; exactly three home features span three cities when possible and at least two cities in all cases.
+- [x] English and Chinese copy are complete and equivalent.
+- [x] 12–18 activities are published with verified date, city, source and privacy review.
+- [x] All five cities with suitable material are represented; exactly three home features span three cities when possible and at least two cities in all cases.
 - [ ] Desktop and mobile Home visibly match the approved `safaa-gemini-style-poc.html` composition rather than either rejected POC direction.
-- [ ] No synthetic legacy events, unsupported claims or fundraising language appear.
-- [ ] All images are local, optimised and have bilingual alt text.
+- [x] No synthetic legacy events, unsupported claims or fundraising language appear.
+- [x] All images are local, optimised and have bilingual alt text.
 - [ ] Lighthouse scores are at least 90 in all four categories on representative routes.
-- [ ] GitHub Actions deployment is green.
-- [ ] Apex and `www` behaviour is consistent, HTTPS is enforced and canonical URLs use `https://safaa-au.site/`.
+- [x] GitHub Actions deployment is green.
+- [x] Apex and `www` behaviour is consistent, HTTPS is enforced and canonical URLs use `https://safaa-au.site/`.
 - [ ] Notion, Xiaohongshu and email links work.
 - [ ] Domain renewal is confirmed before 22 November 2026.
+
 # Implementation addendum — 23 September 2026
 
-The approved Gemini Trust layout is implemented in Astro. Source checking found that the first draft mislabelled several events and reused unrelated artwork; the activity collection was rebuilt from the public Notion board and local export. The release uses 17 events from 2024–2026, with exactly three featured cities, typed records in `src/data/site.ts`, and `/events/` routes. When no exact-event image is available, a branded city cover is used rather than an unrelated photograph. This intentionally supersedes the earlier per-event JSON and `/activities/` file-path examples in this plan. The remaining release gates are visual QA, green checks, GitHub Pages publication, DNS/HTTPS verification and the domain renewal decision.
+The approved Gemini Trust layout is implemented in Astro. Source checking found that the first draft mislabelled several events and reused unrelated artwork; the activity collection was rebuilt from the public Notion board and local export. The release uses 17 events from 2024–2026, with exactly three featured cities, typed records in `src/data/site.ts`, and `/events/` routes. When no exact-event image is available, a branded city cover is used rather than an unrelated photograph. This intentionally supersedes the earlier per-event JSON and `/activities/` file-path examples in this plan.
+
+## Release record — 23 September 2026
+
+- Published the public repository at <https://github.com/yilinqiao/safaa-au-site> with a successful GitHub Actions Pages deployment.
+- Bound `safaa-au.site` to GitHub Pages and verified ownership through the account-level TXT challenge. Hostinger's apex A records are the four official GitHub Pages addresses; `www` points to `yilinqiao.github.io`. The unrelated `n8n` A record was preserved.
+- GitHub approved a certificate for both apex and `www`; HTTPS enforcement is on. Browser checks confirmed the English home page, the 17-activity index, city filtering, Chinese switching, and HTTP/`www` redirects to <https://safaa-au.site/>.
+- Local release checks passed: Astro check, unit tests, static build, desktop/mobile Playwright tests and axe accessibility checks. The domain-renewal decision remains with the owner: Hostinger shows expiry on 22 November 2026 and auto-renewal is off.
