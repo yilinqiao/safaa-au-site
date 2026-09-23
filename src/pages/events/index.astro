@@ -1,17 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { copy, events, cities } from '../../data/site';
-const t = copy.en;
+import EventIndex from '../../components/EventIndex.astro';
 ---
-<BaseLayout locale="en" title="Activities — SAFAA">
-  <section class="page-hero"><div class="wrap"><h1>{t.eventsTitle}</h1><p>{t.eventsBody}</p></div></section>
-  <section class="section"><div class="wrap"><div class="filters" aria-label="Filter activities">{cities.map((city, index) => <button class={`filter${index === 0 ? ' active' : ''}`} data-filter={city}>{city}</button>)}</div><div class="event-grid" data-events>{events.map((event) => <a class="event-card" data-city={event.city} href={`/events/${event.slug}/`}><div class="event-image"><img src={event.image} alt={event.title} loading="lazy" /><span class="pill">{event.city}</span></div><div class="event-content"><div class="event-meta">{event.date} · {event.type}</div><h3>{event.title}</h3><p>{event.summary}</p><span class="event-link">Read story →</span></div></a>)}</div></div></section>
-</BaseLayout>
-<script>
-  document.querySelectorAll<HTMLElement>('[data-filter]').forEach((button) => button.addEventListener('click', () => {
-    document.querySelectorAll<HTMLElement>('[data-filter]').forEach((b) => b.classList.remove('active'));
-    button.classList.add('active');
-    const city = button.getAttribute('data-filter');
-    document.querySelectorAll<HTMLElement>('[data-city]').forEach((card) => { card.style.display = city === 'All' || card.getAttribute('data-city') === city ? '' : 'none'; });
-  }));
-</script>
+<EventIndex locale="en" />

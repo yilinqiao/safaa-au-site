@@ -1,0 +1,20 @@
+---
+import { cityZh, formatDate, type EventItem, type Locale } from '../data/site';
+const { event, locale } = Astro.props as { event: EventItem; locale: Locale };
+const href = `${locale === 'zh' ? '/zh' : ''}/events/${event.slug}/`;
+const city = locale === 'zh' ? cityZh[event.city] : event.city;
+---
+<a class="event-card" data-city={event.city} href={href}>
+  <div class:list={['event-image', !event.image && 'event-cover']} data-cover-city={event.city}>
+    {event.image
+      ? <img src={event.image} alt={locale === 'zh' ? event.imageAltZh : event.imageAlt} loading="lazy" />
+      : <div class="cover-inner" aria-hidden="true"><span>SAFAA</span><strong>{event.city}</strong><i></i></div>}
+    <span class="pill">{city}</span>
+  </div>
+  <div class="event-content">
+    <div class="event-meta">{formatDate(event.date, locale)} <span aria-hidden="true">·</span> {locale === 'zh' ? event.typeZh : event.type}</div>
+    <h3>{locale === 'zh' ? event.titleZh : event.title}</h3>
+    <p>{locale === 'zh' ? event.summaryZh : event.summary}</p>
+    <span class="event-link">{locale === 'zh' ? '查看活动' : 'View activity'} <span aria-hidden="true">→</span></span>
+  </div>
+</a>

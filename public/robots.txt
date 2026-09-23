@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://safaa-au.site/sitemap-index.xml

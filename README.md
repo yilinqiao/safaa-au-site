@@ -22,8 +22,8 @@ npm run test:e2e
 
 ## Content updates
 
-Edit `src/data/site.ts` for activities and bilingual copy. Add a poster or photo to `public/images/`, then reference it from the event record. The home page shows the first three curated records; the Activities page shows all records and filters by city. See [the content workflow](docs/content-update.md).
+Edit `src/data/site.ts` for activities and bilingual copy. Add an approved poster or photo for the exact event to `public/images/`; otherwise the site uses a branded city cover. Exactly three records marked `featured: true` appear on the home page. The Activities page shows all 12–18 records with city filters. See [the content workflow](docs/content-update.md).
 
 ## Deployment
 
-The output is static (`dist/`) and is suitable for Netlify, Cloudflare Pages or GitHub Pages. The production site is configured for `https://safaa-au.site`.
+The output is static (`dist/`). Pushes to `main` deploy through GitHub Pages using `.github/workflows/deploy.yml`. The production site is configured for `https://safaa-au.site` with `public/CNAME`. Domain renewal must be handled in Hostinger separately.

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EventCard from './EventCard.astro';
+import { activityBoard, cities, cityZh, copy, events, type Locale } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const t = copy[locale];
+---
+<BaseLayout locale={locale} title={`${t.events} — SAFAA`} description={t.eventsBody}>
+  <section class="page-hero"><div class="wrap"><h1>{t.eventsTitle}</h1><p>{t.eventsBody}</p></div></section>
+  <section class="section"><div class="wrap">
+    <div class="filters" role="group" aria-label={locale === 'zh' ? '按城市筛选活动' : 'Filter activities by city'}>{cities.map((city, index) => <button type="button" class:list={['filter', index === 0 && 'active']} data-filter={city} aria-pressed={index === 0}>{locale === 'zh' ? city === 'All' ? '全部' : cityZh[city] : city}</button>)}</div>
+    <p class="filter-count" data-result-count aria-live="polite">{locale === 'zh' ? `共 ${events.length} 场精选活动` : `${events.length} selected activities`}</p>
+    <div class="event-grid">{events.map((event) => <EventCard event={event} locale={locale} />)}</div>
+  </div></section>
+  <section class="closing-links"><div class="wrap"><a href={activityBoard} rel="noreferrer">{locale === 'zh' ? '查看完整活动看板' : 'View the complete activity board'}</a><a href="https://xhslink.cn/m/AMpKhDSChIj" rel="noreferrer">{locale === 'zh' ? '在小红书关注 SAFAA' : 'Follow SAFAA on Xiaohongshu'}</a></div></section>
+</BaseLayout>
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.event-card[data-city]')];
+  const result = document.querySelector<HTMLElement>('[data-result-count]');
+  const isChinese = document.documentElement.lang === 'zh';
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    const city = button.dataset.filter;
+    buttons.forEach((item) => { const active = item === button; item.classList.toggle('active', active); item.setAttribute('aria-pressed', String(active)); });
+    let count = 0;
+    cards.forEach((card) => { card.hidden = city !== 'All' && card.dataset.city !== city; if (!card.hidden) count++; });
+    if (result) result.textContent = isChinese ? `显示 ${count} 场活动` : `Showing ${count} activities`;
+  }));
+</script>

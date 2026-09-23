@@ -1,9 +1,4 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { copy, events, cities } from '../../../data/site';
-const t = copy.zh;
-const labels: Record<string, string> = { All: '全部', Sydney: '悉尼', Melbourne: '墨尔本', Adelaide: '阿德莱德', Perth: '珀斯', Brisbane: '布里斯班', Online: '线上' };
+import EventIndex from '../../../components/EventIndex.astro';
 ---
-<BaseLayout locale="zh" title="活动 — SAFAA"><section class="page-hero"><div class="wrap"><h1>{t.eventsTitle}</h1><p>{t.eventsBody}</p></div></section><section class="section"><div class="wrap"><div class="filters" aria-label="筛选活动">{cities.map((city, index) => <button class={`filter${index === 0 ? ' active' : ''}`} data-filter={city}>{labels[city]}</button>)}</div><div class="event-grid">{events.map((event) => <a class="event-card" data-city={event.city} href={`/zh/events/${event.slug}/`}><div class="event-image"><img src={event.image} alt={event.titleZh} loading="lazy" /><span class="pill">{event.cityZh}</span></div><div class="event-content"><div class="event-meta">{event.dateZh} · {event.typeZh}</div><h3>{event.titleZh}</h3><p>{event.summaryZh}</p><span class="event-link">查看活动 →</span></div></a>)}</div></div></section></BaseLayout><script>
-document.querySelectorAll<HTMLElement>('[data-filter]').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll<HTMLElement>('[data-filter]').forEach((b) => b.classList.remove('active')); button.classList.add('active'); const city = button.getAttribute('data-filter'); document.querySelectorAll<HTMLElement>('[data-city]').forEach((card) => { card.style.display = city === 'All' || card.getAttribute('data-city') === city ? '' : 'none'; }); }));
-</script>
+<EventIndex locale="zh" />

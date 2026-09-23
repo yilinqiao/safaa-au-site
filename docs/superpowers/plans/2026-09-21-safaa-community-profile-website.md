@@ -883,3 +883,6 @@ git push origin v1.0.0
 - [ ] Apex and `www` behaviour is consistent, HTTPS is enforced and canonical URLs use `https://safaa-au.site/`.
 - [ ] Notion, Xiaohongshu and email links work.
 - [ ] Domain renewal is confirmed before 22 November 2026.
+# Implementation addendum — 23 September 2026
+
+The approved Gemini Trust layout is implemented in Astro. Source checking found that the first draft mislabelled several events and reused unrelated artwork; the activity collection was rebuilt from the public Notion board and local export. The release uses 17 events from 2024–2026, with exactly three featured cities, typed records in `src/data/site.ts`, and `/events/` routes. When no exact-event image is available, a branded city cover is used rather than an unrelated photograph. This intentionally supersedes the earlier per-event JSON and `/activities/` file-path examples in this plan. The remaining release gates are visual QA, green checks, GitHub Pages publication, DNS/HTTPS verification and the domain renewal decision.
