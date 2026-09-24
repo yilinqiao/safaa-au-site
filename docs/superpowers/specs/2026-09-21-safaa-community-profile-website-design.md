@@ -187,14 +187,14 @@ There is no contact form at launch. A mail link is more reliable and avoids coll
 - Dark navy overlay that preserves faces and provides text contrast
 - Centred translucent capsule: `Starleap Asian Female Association Of Australia Inc`
 - Headline: `Driven. Open-minded. Independent.`
-- Supporting copy: `A volunteer-led community where Asian women across Australia meet, learn and support one another.`
+- Supporting copy: `A volunteer-led community where Asian women across Australia meet, learn and support one another. Our volunteers have delivered activities since 2024.`
 - Primary action: `Explore activities`
 - Secondary action: `Our vision`
 
 Chinese equivalent:
 
 - Headline: `积极进取 · 开放包容 · 独立自信`
-- Supporting copy: `由志愿者共同建设，让澳大利亚各地的亚裔女性相聚、学习并彼此支持。`
+- Supporting copy: `由志愿者共同建设，让澳大利亚各地的亚裔女性相聚、学习并彼此支持。自 2024 年以来，持续通过活动连接社群。`
 - Actions: `浏览活动` and `我们的愿景`
 
 **Impact strip**
@@ -202,7 +202,7 @@ Chinese equivalent:
 - `2,300+` Community members / 社群成员
 - `100+` Volunteers / 志愿者
 - `5` Australian cities / 澳洲城市
-- `AU` Community network / 全澳社群网络
+- `300+` Activities delivered / 已举办活动
 
 **Selected activities**
 

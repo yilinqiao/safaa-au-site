@@ -19,7 +19,7 @@
 - Match `C:\Users\elynq\OneDrive\Documents\Personal\Starleap\gemini-safaa-website\` and the approved `safaa-gemini-style-poc.html` composition; do not substitute an editorial redesign.
 - Use only real SAFAA photographs and approved logo assets; do not generate or substitute community imagery.
 - Store production images in the repository; do not render expiring Notion image URLs.
-- Show 2,300+ community members, 100+ volunteers and five Australian cities.
+- Show 2,300+ community members, 100+ volunteers, five Australian cities and 300+ activities delivered; explain the `since 2024` timeframe in the home-page introduction.
 - Do not publish a registration number, founder profiles, committee profiles, donation request, sponsorship solicitation or unsupported impact claim.
 - Do not add a live Notion API, n8n workflow, CMS, analytics, tracking pixel, contact form, account system or payment flow.
 - Use `info@safaa-nonprofit.org`, the public Notion activity archive and the supplied Xiaohongshu link.
