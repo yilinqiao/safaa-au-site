@@ -177,7 +177,7 @@ There is no contact form at launch. A mail link is more reliable and avoids coll
 **Header**
 
 - Fixed two-level header matching the Gemini reference
-- Slim navy utility bar with registered-not-for-profit wording and the EN / 中文 control
+- Slim navy utility bar with five-city reach, the 2024 founding year and the EN / 中文 control
 - White navigation row with the approved SAFAA logo, Home, Activities, About and a teal `Activity archive` action
 - Mobile collapses to the logo, language control and a keyboard-accessible menu button without horizontal overflow
 
@@ -187,14 +187,14 @@ There is no contact form at launch. A mail link is more reliable and avoids coll
 - Dark navy overlay that preserves faces and provides text contrast
 - Centred translucent capsule: `Starleap Asian Female Association Of Australia Inc`
 - Headline: `Driven. Open-minded. Independent.`
-- Supporting copy: `A volunteer-led community where Asian women across Australia meet, learn and support one another. Our volunteers have delivered activities since 2024.`
+- Supporting copy: `A volunteer-led community where Asian women across Australia meet, learn and support one another.`
 - Primary action: `Explore activities`
 - Secondary action: `Our vision`
 
 Chinese equivalent:
 
 - Headline: `积极进取 · 开放包容 · 独立自信`
-- Supporting copy: `由志愿者共同建设，让澳大利亚各地的亚裔女性相聚、学习并彼此支持。自 2024 年以来，持续通过活动连接社群。`
+- Supporting copy: `由志愿者共同建设，让澳大利亚各地的亚裔女性相聚、学习并彼此支持。`
 - Actions: `浏览活动` and `我们的愿景`
 
 **Impact strip**
@@ -380,7 +380,7 @@ The site is ready to publish when all of the following are true:
 
 - The design faithfully matches the approved local `gemini-safaa-website` Trust composition and `safaa-gemini-style-poc.html` while replacing all placeholder content and demo controls.
 - English is the default and every public page has a complete Chinese equivalent.
-- The home page shows 2,300+ members, 100+ volunteers and five cities.
+- The home page shows 2,300+ members, 100+ volunteers, five cities and 300+ activities; the top bar states the five-city reach and 2024 founding year.
 - The Activities page contains 12–18 verified activities and represents every city for which suitable source material exists.
 - The three home-page activities cover three cities when verified material permits and never present a Sydney-only row.
 - All published photos are local, approved and have bilingual alt text.

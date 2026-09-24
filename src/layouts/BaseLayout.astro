@@ -40,7 +40,7 @@ const switchPath = locale === 'en' ? zhPath : enPath;
   </head>
   <body>
     <a class="skip-link" href="#main">{locale === 'zh' ? '跳到主要内容' : 'Skip to content'}</a>
-    <div class="topbar"><div class="wrap topbar-inner"><span>{locale === 'zh' ? '在澳洲注册的非营利组织 · 遍布五座城市' : 'Registered Australian not-for-profit · Across five cities'}</span><a href={switchPath} lang={locale === 'en' ? 'zh-CN' : 'en-AU'} aria-label={locale === 'en' ? 'Switch to Chinese' : 'Switch to English'}>{t.language}</a></div></div>
+    <div class="topbar"><div class="wrap topbar-inner"><span>{locale === 'zh' ? '遍布澳洲五座城市 · 成立于 2024 年' : 'Across five cities in Australia · Founded in 2024'}</span><a href={switchPath} lang={locale === 'en' ? 'zh-CN' : 'en-AU'} aria-label={locale === 'en' ? 'Switch to Chinese' : 'Switch to English'}>{t.language}</a></div></div>
     <header class="site-header"><div class="wrap nav-row">
       <a href={homePath} class="brand" aria-label={locale === 'zh' ? 'SAFAA 首页' : 'SAFAA home'}><img src="/images/safaa-logo.png" alt="" width="205" height="63" /><span>Starleap Asian Female Association Of Australia Inc</span></a>
       <nav aria-label={locale === 'zh' ? '主要导航' : 'Primary navigation'}><a href={homePath}>{t.home}</a><a href={eventsPath}>{t.events}</a><a href={aboutPath}>{t.about}</a><a class="nav-cta" href={activityBoard} rel="noreferrer">{locale === 'zh' ? '活动看板' : 'Activity archive'}</a></nav>
