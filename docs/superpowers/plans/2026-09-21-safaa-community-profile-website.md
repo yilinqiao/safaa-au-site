@@ -886,11 +886,11 @@ git push origin v1.0.0
 
 # Implementation addendum — 23 September 2026
 
-The approved Gemini Trust layout is implemented in Astro. Source checking found that the first draft mislabelled several events and reused unrelated artwork; the activity collection was rebuilt from the public Notion board and local export. The release uses 17 events from 2024–2026, with exactly three featured cities, typed records in `src/data/site.ts`, and `/events/` routes. When no exact-event image is available, a branded city cover is used rather than an unrelated photograph. This intentionally supersedes the earlier per-event JSON and `/activities/` file-path examples in this plan.
+The approved Gemini Trust layout is implemented in Astro. Source checking found that the first draft mislabelled several events and reused unrelated artwork; the activity collection was rebuilt from the public Notion board and local export. The release uses 18 events from 2024–2026, with exactly three featured cities, typed records in `src/data/site.ts`, bilingual detail copy and `/events/` routes. Every selected event has an exact local image, prioritising live event photography and using the matching poster only when necessary. This intentionally supersedes the earlier per-event JSON and `/activities/` file-path examples in this plan.
 
 ## Release record — 23 September 2026
 
 - Published the public repository at <https://github.com/yilinqiao/safaa-au-site> with a successful GitHub Actions Pages deployment.
 - Bound `safaa-au.site` to GitHub Pages and verified ownership through the account-level TXT challenge. Hostinger's apex A records are the four official GitHub Pages addresses; `www` points to `yilinqiao.github.io`. The unrelated `n8n` A record was preserved.
-- GitHub approved a certificate for both apex and `www`; HTTPS enforcement is on. Browser checks confirmed the English home page, the 17-activity index, city filtering, Chinese switching, and HTTP/`www` redirects to <https://safaa-au.site/>.
+- GitHub approved a certificate for both apex and `www`; HTTPS enforcement is on. Browser checks confirmed the English home page, the 18-activity index, city filtering, Chinese switching, and HTTP/`www` redirects to <https://safaa-au.site/>.
 - Local release checks passed: Astro check, unit tests, static build, desktop/mobile Playwright tests and axe accessibility checks. The domain-renewal decision remains with the owner: Hostinger shows expiry on 22 November 2026 and auto-renewal is off.

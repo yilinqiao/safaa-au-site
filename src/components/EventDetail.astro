@@ -4,14 +4,13 @@ import { activityBoard, cityZh, formatDate, type EventItem, type Locale } from '
 const { event, locale } = Astro.props as { event: EventItem; locale: Locale };
 const title = locale === 'zh' ? event.titleZh : event.title;
 const summary = locale === 'zh' ? event.summaryZh : event.summary;
+const detail = locale === 'zh' ? event.detailZh : event.detail;
 const city = locale === 'zh' ? cityZh[event.city] : event.city;
 ---
 <BaseLayout locale={locale} title={`${title} — SAFAA`} description={summary}>
   <section class="page-hero"><div class="wrap"><p class="detail-kicker">{city} <span aria-hidden="true">/</span> {locale === 'zh' ? event.typeZh : event.type}</p><h1>{title}</h1><p>{formatDate(event.date, locale)}</p></div></section>
   <section class="section"><div class="wrap split detail-split">
-    {event.image
-      ? <img class="about-image" src={event.image} alt={locale === 'zh' ? event.imageAltZh : event.imageAlt} />
-      : <div class="event-image event-cover detail-cover" data-cover-city={event.city}><div class="cover-inner" aria-hidden="true"><span>SAFAA</span><strong>{event.city}</strong><i></i></div></div>}
-    <div class="prose"><p class="detail-date">{formatDate(event.date, locale)} · {city}</p><h2>{locale === 'zh' ? '活动回顾' : 'About this activity'}</h2><p>{summary}</p><p>{locale === 'zh' ? '这是 SAFAA 公开活动看板中收录的精选活动之一。更多活动资料和物料请查看原始看板。' : 'This is one selection from SAFAA’s public activity board. For the original listing and more event materials, explore the source archive.'}</p><a class="button button-dark" href={event.sourceUrl || activityBoard} rel="noreferrer">{locale === 'zh' ? '查看公开活动看板' : 'View the public activity board'}</a></div>
+    <img class="about-image" src={event.image} alt={locale === 'zh' ? event.imageAltZh : event.imageAlt} />
+    <div class="prose"><p class="detail-date">{formatDate(event.date, locale)} · {city}</p><h2>{locale === 'zh' ? '活动介绍与小记' : 'About this activity'}</h2><p>{summary}</p><p>{detail}</p><a class="button button-dark" href={event.sourceUrl || activityBoard} rel="noreferrer">{locale === 'zh' ? '查看公开活动看板' : 'View the public activity board'}</a></div>
   </div></section>
 </BaseLayout>

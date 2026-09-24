@@ -20,7 +20,8 @@ test('home is bilingual and features three distinct cities', async ({ page, isMo
 
 test('archive spans five cities, online and multiple years', async ({ page }) => {
   await page.goto('/events/');
-  await expect(page.locator('.event-card')).toHaveCount(17);
+  await expect(page.locator('.event-card')).toHaveCount(18);
+  await expect(page.locator('.event-card img')).toHaveCount(18);
   for (const city of ['Sydney', 'Melbourne', 'Adelaide', 'Perth', 'Brisbane', 'Online']) {
     await expect(page.locator(`.event-card[data-city="${city}"]`).first()).toBeVisible();
   }
@@ -29,21 +30,25 @@ test('archive spans five cities, online and multiple years', async ({ page }) =>
   await expect(page.locator('.event-card:visible')).toHaveCount(3);
   await expect(page.locator('[data-result-count]')).toContainText('3');
   await page.getByRole('button', { name: 'All' }).click();
-  await expect(page.locator('.event-card:visible')).toHaveCount(17);
-  await page.locator('a[href="/events/sydney-financial-planning/"]').click();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Financial & Retirement Planning');
+  await expect(page.locator('.event-card:visible')).toHaveCount(18);
+  await page.locator('a[href="/events/sydney-girls-ai/"]').click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Girls x AI');
+  await expect(page.locator('.about-image')).toHaveAttribute('src', '/images/sydney-girls-ai-2025.webp');
+  await expect(page.getByRole('heading', { level: 2 })).toContainText('About this activity');
   await expect(page.locator('a[href*="notion.site"]')).not.toHaveCount(0);
 });
 
 test('Chinese routes and language switch preserve page context', async ({ page }) => {
   await page.goto('/zh/events/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
-  await expect(page.locator('.event-card')).toHaveCount(17);
-  await page.locator('a[href="/zh/events/brisbane-pilates-august/"]').click();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('普拉提');
+  await expect(page.locator('.event-card')).toHaveCount(18);
+  await page.locator('a[href="/zh/events/sydney-girls-ai/"]').click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Girls x AI');
+  await expect(page.locator('.about-image')).toHaveAttribute('src', '/images/sydney-girls-ai-2025.webp');
+  await expect(page.getByRole('heading', { level: 2 })).toContainText('活动介绍与小记');
   await page.getByRole('link', { name: 'Switch to English' }).click();
-  await expect(page).toHaveURL(/\/events\/brisbane-pilates-august\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Pilates Together');
+  await expect(page).toHaveURL(/\/events\/sydney-girls-ai\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Girls x AI');
 });
 
 test('mobile pages do not overflow horizontally', async ({ page, isMobile }) => {

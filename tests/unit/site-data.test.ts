@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { statSync } from 'node:fs';
+import { join } from 'node:path';
 import { events } from '../../src/data/site';
 
 describe('curated activity archive', () => {
@@ -27,6 +29,26 @@ describe('curated activity archive', () => {
       expect(event.summary.trim()).not.toBe('');
       expect(event.summaryZh.trim()).not.toBe('');
       expect(event.sourceUrl).toMatch(/^https:\/\//);
+      expect(event.detail, event.slug).toMatch(/\S/);
+      expect(event.detailZh, event.slug).toMatch(/\S/);
     }
+  });
+
+  it('uses a real local image with bilingual alt text for every selected activity', () => {
+    for (const event of events) {
+      expect(event.image, event.slug).toMatch(/^\/images\/.+\.(webp|png|jpe?g)$/);
+      expect(event.imageAlt?.trim(), event.slug).not.toBe('');
+      expect(event.imageAltZh?.trim(), event.slug).not.toBe('');
+      const imageFile = join(process.cwd(), 'public', event.image!.slice(1));
+      expect(statSync(imageFile).size, event.slug).toBeGreaterThan(1_000);
+    }
+  });
+
+  it('foregrounds AI, skills and working life without misdating the 2025 Sydney archive', () => {
+    const professionalTypes = new Set(['AI & skills', 'Career', 'Learning', 'Networking', 'Finance']);
+    expect(events.filter((event) => professionalTypes.has(event.type)).length).toBeGreaterThanOrEqual(10);
+    expect(events.find((event) => event.slug === 'sydney-girls-ai')?.featured).toBe(true);
+    expect(events.find((event) => event.slug === 'sydney-tax-tips-dinner')?.date).toBe('2025-09-19');
+    expect(events.find((event) => event.slug === 'sydney-learning-tools')?.date).toBe('2025-09-13');
   });
 });
