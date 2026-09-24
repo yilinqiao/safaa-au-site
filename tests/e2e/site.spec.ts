@@ -8,6 +8,7 @@ test('home is bilingual and features three distinct cities', async ({ page, isMo
   await expect(page.locator('.event-card')).toHaveCount(3);
   expect(await page.locator('.event-card').evaluateAll((cards) => new Set(cards.map((card) => card.getAttribute('data-city'))).size)).toBe(3);
   await expect(page.getByRole('link', { name: 'Switch to Chinese' })).toHaveAttribute('href', '/zh/');
+  await expect(page.locator('a[href*="linkedin.com/company/starleap-asian-female-association-of-australia-inc"]')).not.toHaveCount(0);
   if (isMobile) {
     await page.getByRole('button', { name: 'Open menu' }).click();
     await expect(page.locator('#mobile-menu')).toBeVisible();

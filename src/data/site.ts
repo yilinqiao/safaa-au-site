@@ -21,6 +21,8 @@ export type EventItem = {
 };
 
 export const activityBoard = 'https://iced-beryl-997.notion.site/SAFAA-54391bb39be34aa88dcefa446a4fe2f4';
+export const linkedinPage = 'https://www.linkedin.com/company/starleap-asian-female-association-of-australia-inc/?viewAsMember=true';
+export const xiaohongshuPage = 'https://xhslink.cn/m/AMpKhDSChIj';
 
 // Dates, recaps and image provenance were checked against SAFAA's public
 // activity board. Every image belongs to the exact activity it illustrates.

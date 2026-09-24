@@ -3,7 +3,7 @@ import '@fontsource-variable/inter';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '../styles/global.css';
-import { activityBoard, copy, type Locale } from '../data/site';
+import { activityBoard, copy, linkedinPage, xiaohongshuPage, type Locale } from '../data/site';
 
 const { locale = 'en', title = 'SAFAA — Starleap Asian Female Association Of Australia Inc', description } = Astro.props as { locale?: Locale; title?: string; description?: string };
 const t = copy[locale];
@@ -29,7 +29,7 @@ const switchPath = locale === 'en' ? zhPath : enPath;
     <meta property="og:site_name" content="SAFAA" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={pageDescription} />
-    <meta property="og:image" content="https://safaa-au.site/images/community-hero.webp" />
+    <meta property="og:image" content="https://safaa-au.site/images/community-hero-clean.webp" />
     <meta property="og:url" content={canonical} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en-AU" href={enUrl} />
@@ -47,7 +47,7 @@ const switchPath = locale === 'en' ? zhPath : enPath;
       <button class="menu-button" type="button" aria-label={locale === 'zh' ? '打开菜单' : 'Open menu'} aria-controls="mobile-menu" aria-expanded="false" data-menu-button><span aria-hidden="true">☰</span></button>
     </div><nav id="mobile-menu" class="mobile-menu" aria-label={locale === 'zh' ? '手机导航' : 'Mobile navigation'} hidden><a href={homePath}>{t.home}</a><a href={eventsPath}>{t.events}</a><a href={aboutPath}>{t.about}</a><a href={activityBoard} rel="noreferrer">{locale === 'zh' ? '活动看板' : 'Activity archive'}</a></nav></header>
     <main id="main"><slot /></main>
-    <footer class="footer"><div class="wrap footer-grid"><div><div class="footer-brand">SAFAA</div><p>{t.eyebrow}</p><p>{locale === 'zh' ? '在澳洲注册的非营利组织' : 'Registered not-for-profit organisation in Australia'}</p></div><div><p class="footer-label">{locale === 'zh' ? '浏览' : 'Explore'}</p><a href={homePath}>{t.home}</a><a href={eventsPath}>{t.events}</a><a href={aboutPath}>{t.about}</a></div><div><p class="footer-label">{locale === 'zh' ? '联系与关注' : 'Connect'}</p><a href={activityBoard} rel="noreferrer">{locale === 'zh' ? '公开活动看板' : 'Public activity board'}</a><a href="https://xhslink.cn/m/AMpKhDSChIj" rel="noreferrer">小红书 / RED</a><a href={`mailto:${t.email}`}>{t.email}</a></div></div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} SAFAA</span><span>{locale === 'zh' ? '一起成长，彼此支持。' : 'Made for community.'}</span></div></footer>
+    <footer class="footer"><div class="wrap footer-grid"><div><div class="footer-brand">SAFAA</div><p>{t.eyebrow}</p><p>{locale === 'zh' ? '在澳洲注册的非营利组织' : 'Registered not-for-profit organisation in Australia'}</p></div><div><p class="footer-label">{locale === 'zh' ? '浏览' : 'Explore'}</p><a href={homePath}>{t.home}</a><a href={eventsPath}>{t.events}</a><a href={aboutPath}>{t.about}</a></div><div><p class="footer-label">{locale === 'zh' ? '联系与关注' : 'Connect'}</p><a href={activityBoard} rel="noreferrer">{locale === 'zh' ? '公开活动看板' : 'Public activity board'}</a><a href={linkedinPage} rel="noreferrer">LinkedIn</a><a href={xiaohongshuPage} rel="noreferrer">小红书 / RED</a><a href={`mailto:${t.email}`}>{t.email}</a></div></div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} SAFAA</span><span>{locale === 'zh' ? '一起成长，彼此支持。' : 'Made for community.'}</span></div></footer>
     <script>
       const button = document.querySelector<HTMLButtonElement>('[data-menu-button]');
       const menu = document.querySelector<HTMLElement>('#mobile-menu');
